@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillBridge</title>
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              canvas: '#050816',
+              ink: '#060b19',
+              accent: '#7c3aed',
+              mist: '#171f3b',
+              sand: '#334155',
+              plum: '#a855f7',
+            },
+            fontFamily: {
+              display: ['"Space Grotesk"', 'sans-serif'],
+              body: ['"DM Sans"', 'sans-serif'],
+            },
+            boxShadow: {
+              glow: '0 22px 70px rgba(124, 58, 237, 0.3)',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

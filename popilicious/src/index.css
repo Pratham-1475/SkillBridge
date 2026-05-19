@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FFD1DC;
+  --color-primary-dark: #FFB6C1;
+  --color-secondary: #FDF5E6;
+  --color-accent: #D4AF37;
+  --color-text-main: #5D4037;
+  --color-text-muted: #8D6E63;
+  --color-bg-light: #FFFAF0;
+  
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Outfit", sans-serif;
+  --font-script: "Dancing Script", cursive;
+  
+  --shadow-soft: 0 10px 30px rgba(93, 64, 55, 0.08);
+}
+
+/* Base Styles */
+:root {
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-light);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Image Flexibility & Card Alignment */
+.image-container {
+  @apply relative overflow-hidden w-full;
+  aspect-ratio: 4 / 3;
+}
+
+.image-container img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.cake-card {
+  @apply bg-white rounded-3xl shadow-soft overflow-hidden flex flex-col h-full;
+}
+
+/* Feature Cards */
+.feature-card {
+  @apply bg-white p-10 rounded-3xl shadow-soft border border-primary/10 flex flex-col items-center text-center transition-transform duration-300 h-full;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-primary text-white px-8 py-3 rounded-full font-semibold transition-all shadow-md hover:bg-primary-dark hover:-translate-y-0.5;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-text-main px-8 py-3 rounded-full font-semibold transition-all hover:bg-primary hover:text-white;
+}
+
+/* Typography Utilities */
+.font-script {
+  font-family: var(--font-script) !important;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-text-main to-accent;
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/30;
+}
+
+.sprinkle {
+  @apply absolute w-1 h-3 rounded-full pointer-events-none z-0;
+}
+
+.frosting-wave {
+  @apply absolute bottom-0 left-0 w-full leading-none overflow-hidden;
+}
+
+.frosting-wave svg {
+  @apply relative block w-full h-16;
+}
+
+.frosting-wave .shape-fill {
+  @apply fill-white;
+}
+
+.testimonial-card {
+  @apply min-w-full px-4 text-center;
+}
+
+@media (max-width: 767px) { .hidden.md\:flex { display: none !important; } .flex.md\:hidden { display: flex !important; } }
